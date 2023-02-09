@@ -25,7 +25,7 @@ public class Blackjack<Hands> {
 
 
         // Hand1
-        System.out.println("\n-------------------------\nHand1");
+        System.out.println("\n--------------------------\nHand1");
         for (int i = 0; i < 10; i++) {
             Hand1.enqueue(CardDeck.dequeue());
         }
@@ -39,7 +39,7 @@ public class Blackjack<Hands> {
 
 
         // Hand2
-        System.out.println("\n-------------------------\nHand2");
+        System.out.println("\n--------------------------\nHand2");
         for (int i = 0; i < 10; i++) {
             Hand2.enqueue(CardDeck.dequeue());
         }
@@ -53,7 +53,7 @@ public class Blackjack<Hands> {
 
 
         // Hand3
-        System.out.println("\n-------------------------\nHand3");
+        System.out.println("\n--------------------------\nHand3");
         for (int i = 0; i < 10; i++) {
             Hand3.enqueue(CardDeck.dequeue());
         }
@@ -67,6 +67,6 @@ public class Blackjack<Hands> {
 
 
         // Final Total Cards in Deck
-        System.out.println("\n-------------------------\nThe final total of cards in the deck is " + CardDeck.ItemCount + " cards.");
+        System.out.println("\n--------------------------\nThe final total of cards in the deck is " + CardDeck.ItemCount + " cards.");
     }
 }
