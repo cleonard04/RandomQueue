@@ -1,11 +1,14 @@
 package RandomQueue;
 
+
 import java.util.concurrent.ThreadLocalRandom;
+
 
 public class RandomQueue<Item> {
 
     private Item[] ItemArray = (Item[]) new Object[52];
-    private int ItemCount = 0;
+
+    public int ItemCount = 0;
 
     public RandomQueue(){
 
@@ -14,7 +17,19 @@ public class RandomQueue<Item> {
         return true;
     }
 
+    private void resize(int max) { // Move stack to a new array of size max.
+        Item[] temp = (Item[]) new Object[max];
+        for (int i = 0; i < ItemCount; i++) {
+            temp[i] = ItemArray[i];
+        }
+        ItemArray = temp;
+    }
+
     public void enqueue(Item item){
+        if (ItemCount == ItemArray.length) {
+            resize(2*ItemArray.length);
+        }
+
         ItemArray[ItemCount++] = item;
     }
 
@@ -31,16 +46,5 @@ public class RandomQueue<Item> {
         ItemCount--; // shrinks the accessible part of the array so the last number can no longer be selected
         return ItemArray[ItemCount]; // return the value that is no out of range of access of the array
     }
-    public static void main(String[] args){
-        RandomQueue<Cards> CardDeck =  new RandomQueue<Cards>();
-        for (Suit suit: Suit.values()) {
-            for (Rank rank: Rank.values()) {
-                CardDeck.enqueue(new Cards(suit, rank));
-            }
-        }
-        for (int i = 0; i < 10; i++) {
-            System.out.println(CardDeck.dequeue().toString());
-        }
 
-    }
 }
